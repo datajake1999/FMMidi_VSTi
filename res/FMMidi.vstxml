@@ -1,0 +1,16 @@
+<VSTPluginProperties>
+	<VSTParametersStructure>
+		<Param name="Volume" id="0"/>
+		<Param name="VolumeDisplay" id="1" numberOfStates="2"/>
+		<ValueType name="VolumeDisplay">
+			<Entry name="dB" value="[0, 0.5["/> 
+			<Entry name="%" value="[0.5, 1]"/> 
+		</ValueType>
+		<Param name="Transpose" id="2" numberOfStates="25" label="Semitones"/>
+		<Param name="PushMidi" id="3" numberOfStates="2"/>
+		<ValueType name="PushMidi">
+			<Entry name="OFF" value="[0, 0.5["/> 
+			<Entry name="ON" value="[0.5, 1]"/> 
+		</ValueType>
+	</VSTParametersStructure>
+</VSTPluginProperties>
