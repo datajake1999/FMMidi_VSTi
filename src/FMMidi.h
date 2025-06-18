@@ -22,6 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <math.h>
 //#define DEMO
 #ifdef DEMO
@@ -67,6 +68,8 @@ struct FMMidiChunk
 	float Parameters[kNumParams];
 	bool bypassed;
 	bool ChannelEnabled[16];
+	bool FreezeMeters;
+	bool HideParameters;
 };
 
 class FMMidi : public AudioEffectX
@@ -130,6 +133,10 @@ public:
 	virtual bool getBypass ();
 	virtual void enableChannel (VstInt32 channel, bool enable);
 	virtual bool isChannelEnabled (VstInt32 channel);
+	virtual void setFreezeMeters (bool value);
+	virtual bool getFreezeMeters ();
+	virtual void setHideParameters (bool value);
+	virtual bool getHideParameters ();
 	virtual void hardReset ();
 	virtual VstInt32 getActiveVoices ();
 	virtual HostInfo* getHostInfo ();
@@ -167,6 +174,8 @@ private:
 	float PushMidi;
 	bool bypassed;
 	bool ChannelEnabled[16];
+	bool FreezeMeters;
+	bool HideParameters;
 	FMMidiChunk chunk;
 	HostInfo hi;
 	LockableObject lock;

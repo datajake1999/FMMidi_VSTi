@@ -32,6 +32,8 @@ void FMMidi::initializeSettings (bool resetSynth)
 	{
 		ChannelEnabled[i] = true;
 	}
+	FreezeMeters = false;
+	HideParameters = false;
 	if (resetSynth)
 	{
 		suspend ();
@@ -72,6 +74,30 @@ bool FMMidi::isChannelEnabled (VstInt32 channel)
 {
 	channel = channel & 0x0f;
 	return ChannelEnabled[channel];
+}
+
+void FMMidi::setFreezeMeters (bool value)
+{
+	lock.acquire();
+	FreezeMeters = value;
+	lock.release();
+}
+
+bool FMMidi::getFreezeMeters ()
+{
+	return FreezeMeters;
+}
+
+void FMMidi::setHideParameters (bool value)
+{
+	lock.acquire();
+	HideParameters = value;
+	lock.release();
+}
+
+bool FMMidi::getHideParameters ()
+{
+	return HideParameters;
 }
 
 void FMMidi::hardReset ()

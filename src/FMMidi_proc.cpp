@@ -156,7 +156,7 @@ void FMMidi::processTemplate (sampletype** inputs, sampletype** outputs, VstInt3
 	double begin;
 	double end;
 
-	if (bypassed || !buffer || !out1 || !out2 || !lock.tryAcquire())
+	if (bypassed || !buffer || !lock.tryAcquire())
 	{
 		begin = GetCPUTime();
 		if (out1)
