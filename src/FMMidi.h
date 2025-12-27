@@ -130,7 +130,6 @@ public:
 	virtual bool hasMidiProgramsChanged (VstInt32 channel);
 	virtual bool getMidiKeyName (VstInt32 channel, MidiKeyName* keyName);
 	virtual void initializeSettings (bool resetSynth);
-	virtual bool getBypass ();
 	virtual void enableChannel (VstInt32 channel, bool enable);
 	virtual bool isChannelEnabled (VstInt32 channel);
 	virtual void setFreezeMeters (bool value);
@@ -139,6 +138,7 @@ public:
 	virtual bool getHideParameters ();
 	virtual void hardReset ();
 	virtual VstInt32 getActiveVoices ();
+	virtual bool getBypass ();
 	virtual HostInfo* getHostInfo ();
 	virtual double getCPULoad ();
 private:

@@ -41,11 +41,6 @@ void FMMidi::initializeSettings (bool resetSynth)
 	lock.release();
 }
 
-bool FMMidi::getBypass ()
-{
-	return bypassed;
-}
-
 void FMMidi::enableChannel (VstInt32 channel, bool enable)
 {
 	lock.acquire();
@@ -113,6 +108,11 @@ void FMMidi::hardReset ()
 VstInt32 FMMidi::getActiveVoices ()
 {
 	return 0;
+}
+
+bool FMMidi::getBypass ()
+{
+	return bypassed;
 }
 
 HostInfo* FMMidi::getHostInfo ()
